@@ -1,0 +1,70 @@
+import random
+
+def delay():
+    j =0 
+    while(j<=3000000):
+        j+=1
+
+def print_face():
+    for i in range(0,5):
+        print(dice_faces[dice-1][i])
+
+
+user_score = 0
+dice_faces = [[
+        "┌─────────┐",
+        "│         │",
+        "│    ●    │",
+        "│         │",
+        "└─────────┘",],["┌─────────┐",
+                         "│  ●      │",
+                         "│         │",
+                         "│      ●  │",
+                         "└─────────┘",],["┌─────────┐",
+                                          "│  ●      │",
+                                          "│    ●    │",
+                                          "│      ●  │",
+                                          "└─────────┘",],[ "┌─────────┐",
+                                                            "│  ●   ●  │",  
+                                                            "│         │",
+                                                            "│  ●   ●  │",
+                                                            "└─────────┘",],["┌─────────┐",
+                                                                             "│  ●   ●  │",
+                                                                             "│    ●    │",
+                                                                             "│  ●   ●  │",
+                                                                             "└─────────┘",],["┌─────────┐",
+                                                                                              "│  ●   ●  │",
+                                                                                              "│  ●   ●  │",
+                                                                                              "│  ●   ●  │",
+                                                                                              "└─────────┘",]]
+
+
+while 1:
+
+    user_input = int(input("Any number between 1 to 6 OR 0 for exit: "))
+
+    if user_input == 0:
+        print("see you next time bye....")
+        break
+    elif user_input >6 or user_input<0:
+        print("enter a valid number")
+    else:
+        i = 0 
+        print("rolling", end="")
+        while (i<=10):
+            delay()
+            print(".",end="")
+            i += 1
+        print()
+        dice = random.randint(1,6)
+
+        print_face()
+        
+        if user_input == dice:
+            user_score +=1
+            print(f"Hurray you win, score: {user_score}")
+        else:
+            print(f"Oh no you lose, score: {user_score}")
+
+
+
